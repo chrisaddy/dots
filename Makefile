@@ -8,3 +8,9 @@ commit:
 
 push:
 	git push origin master
+
+links:
+	ln -sf $(HOME)/dotfiles/.vimrc $(HOME)/.vimrc
+	ln -sf $(HOME)/dotfiles/.zshrc $(HOME)/.zshrc
+	ln -sf $(HOME)/dotfiles/.gitconfig $(HOME)/.gitconfig
+	ln -sf $(HOME)/dotfiles/.gitignore $(HOME)/.gitignore

@@ -14,5 +14,6 @@
 	pr = hub pull-request
 [core]
 	excludesfile = ~/.gitignore
+	editor = emacs
 [diff]
 	colorMoved = zebra

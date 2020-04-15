@@ -16,7 +16,7 @@ endif
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 " most importantly, vim has to be pretty
-Plug 'dracula/vim'
+" Plug 'dracula/vim'
 Plug 'challenger-deep-theme/vim', {'as': 'challenger-deep'}
 
 " pretty and functional
@@ -60,18 +60,22 @@ Plug 'ludwig/split-manpage.vim'
 
 """" LANGAUGES
 
-""" JSONNET
+""" clojure
+Plug 'guns/vim-clojure-static'
+Plug 'kien/rainbow_parentheses.vim'
+
+""" jsonnet
 Plug 'google/vim-jsonnet'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'autozimu/LanguageClient-neovim'
 
-""" GO
+""" go
 Plug 'neovim/go-client'
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
-""" HTML/CSS
+""" html/css
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
 
@@ -106,7 +110,8 @@ Plug 'daa84/neovim-lib'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
-
+""" Swift
+Plug 'keith/swift.vim'
 
 """ Vue
 Plug 'posva/vim-vue'
@@ -180,6 +185,32 @@ nnoremap <leader>mm :make<CR>
 " prettify
 nnoremap <leader>pj :%!python -m json.tool<CR>
 
+"------ clojure -------------------
+" rainbow parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 "------ language servers ----------------------
 let g:LanguageClient_autoStart = 1
@@ -207,8 +238,11 @@ colorscheme challenger_deep
 let g:lightline = { 'colorscheme': 'challenger_deep'}
 :let g:challenger_deep_termcolors=256
 syntax on
+filetype plugin indent on
 
 :let g:vim_markdown_conceal = 0
 :let g:vim_markdown_conceal_code_blocks = 0
 :let g:vim_markdown_math = 1
 :let g:vim_markdown_frontmatter = 1
+
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
