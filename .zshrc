@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 export UPDATE_ZSH_DAYS=1
 DISABLE_UPDATE_PROMPT="true"
 # ENABLE_CORRECTION="true" # command autocorrection
@@ -40,3 +40,9 @@ eval "$(direnv hook zsh)"
 [ -f $HOME/pbin/aliases ] && source $HOME/pbin/aliases
 [ -f $HOME/pbin/exports ] && source $HOME/pbin/exports
 [ -f $HOME/pbin/links ] && source $HOME/pbin/links
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/addy/google-cloud-sdk/path.zsh.inc' ]; then . '/home/addy/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/addy/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/addy/google-cloud-sdk/completion.zsh.inc'; fi

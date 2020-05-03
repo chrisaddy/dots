@@ -14,3 +14,4 @@ links:
 	ln -sf $(HOME)/dotfiles/.zshrc $(HOME)/.zshrc
 	ln -sf $(HOME)/dotfiles/.gitconfig $(HOME)/.gitconfig
 	ln -sf $(HOME)/dotfiles/.gitignore $(HOME)/.gitignore
+	ln -sf $(HOME)/dotfiles/.i3 $(HOME)/.i3
