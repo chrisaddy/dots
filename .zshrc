@@ -40,3 +40,6 @@ eval "$(direnv hook zsh)"
 [ -f $HOME/pbin/aliases ] && source $HOME/pbin/aliases
 [ -f $HOME/pbin/exports ] && source $HOME/pbin/exports
 [ -f $HOME/pbin/links ] && source $HOME/pbin/links
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

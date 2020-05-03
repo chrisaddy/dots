@@ -16,7 +16,7 @@ endif
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 " most importantly, vim has to be pretty
-" Plug 'dracula/vim'
+Plug 'dracula/vim'
 Plug 'challenger-deep-theme/vim', {'as': 'challenger-deep'}
 
 " pretty and functional
@@ -60,9 +60,10 @@ Plug 'ludwig/split-manpage.vim'
 
 """" LANGAUGES
 
-""" clojure
+""" lisps
 Plug 'guns/vim-clojure-static'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'eraserhd/parinfer-rust'
 
 """ jsonnet
 Plug 'google/vim-jsonnet'
@@ -234,7 +235,7 @@ let g:LanguageClient_serverCommands = {
 let g:autofmt_autosave = 1
 
 
-colorscheme challenger_deep
+colorscheme dracula
 let g:lightline = { 'colorscheme': 'challenger_deep'}
 :let g:challenger_deep_termcolors=256
 syntax on
@@ -246,3 +247,5 @@ filetype plugin indent on
 :let g:vim_markdown_frontmatter = 1
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+" transparent background
+hi! Normal ctermbg=NONE guibg=NONE
