@@ -1,9 +1,8 @@
 window:
-  title: mainframe cracked - systems configured
   decorations: none
-  startup_mode: Maximized
+  startup_mode: Windowed
 font:
-  size: 18.0
+  size: 13.0
 colors:
   primary:
     background: '0x282a36'
@@ -33,4 +32,4 @@ colors:
     cyan:    '0xa3f7ff'
     white:   '0xffffff'
 
-background_opacity: 0.85
+background_opacity: 0.8
