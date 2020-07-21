@@ -70,7 +70,7 @@ Plug 'eraserhd/parinfer-rust'
 """ jsonnet
 Plug 'google/vim-jsonnet'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'autozimu/LanguageClient-neovim'
 
