@@ -12,8 +12,14 @@
 	st = status
 	conflicted = !nvim +Conflicted
 	pr = hub pull-request
+	wip = git add-all . && git commit -a -m 'wip' && git push
 [core]
 	excludesfile = ~/.gitignore
-	editor = emacs
+	editor = vim
 [diff]
 	colorMoved = zebra
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

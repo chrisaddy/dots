@@ -26,6 +26,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
 
+Plug 'mbbill/undotree'
+
 " tpope is God
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -98,6 +100,8 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 """ R
 Plug 'jalvesaq/Nvim-R'
 
+Plug 'hashivim/vim-terraform'
+
 """ Ruby
 Plug 'neovim/neovim-ruby'
 Plug 'tpope/vim-rails'
@@ -157,6 +161,14 @@ nnoremap <leader>r :edit!<CR>
 
 nnoremap <leader>ff :CtrlP<CR>
 nnoremap <leader>s :w<CR>
+
+"------- undo tree ---------------
+nnoremap <leader>ut :UndotreeToggle<CR>
+
+if has("persistent_undo")
+    set undodir=$HOME"/.undodir"
+    set undofile
+endif
 
 " search in ancestor 'a' is the directory of the current file, 'r' is the
 " nearest ancestor with a .git file
@@ -249,3 +261,7 @@ filetype plugin indent on
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 " transparent background
 hi! Normal ctermbg=NONE guibg=NONE
+
+autocmd BufEnter *.hy :setlocal filetype=clojure
+
+let g:terraform_fmt_on_save=1
