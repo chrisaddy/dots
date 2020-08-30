@@ -27,6 +27,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
 
 Plug 'mbbill/undotree'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " tpope is God
 Plug 'tpope/vim-fugitive'
@@ -43,7 +44,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'jistr/vim-nerdtree-tabs'
-" " Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
+" when vim opens without filename, load nerdtree automatically
 
 " sweet, sweet syntax sugar
 Plug 'dense-analysis/ale'
@@ -60,76 +62,65 @@ Plug 'ludwig/split-manpage.vim'
 " Plug 'xolox/vim-session'
 " Plug 'thaerkh/vim-workspace'
 
-"""" LANGAUGES
-
-""" lisps
+" lisps
 Plug 'guns/vim-clojure-static'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'eraserhd/parinfer-rust'
 
-""" jsonnet
+" jsonnet
 Plug 'google/vim-jsonnet'
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'autozimu/LanguageClient-neovim'
 
-""" go
+" go
 Plug 'neovim/go-client'
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
-""" html/css
+" html/css
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
-
 Plug 'neovim/node-client'
+
+" js
 Plug 'neoclie/neovim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'flowtype/vim-flow'
 
-
-""" PYTHON
+" python
 Plug 'neovim/pynvim'
 Plug 'vim-scripts/indentpython.vim'
 " Plug 'davidhalter/jedi-vim'
 Plug 'nvie/vim-flake8'
-" Plug 'psf/black'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'psf/black'
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
-""" R
+" R
 Plug 'jalvesaq/Nvim-R'
 
-Plug 'hashivim/vim-terraform'
-
-""" Ruby
-Plug 'neovim/neovim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-projectionist'
-" Plug 'thoughtbot/vim-spec'
-Plug 'ecomba/vim-ruby-refactoring'
-
-""" Rust
+" rust
 Plug 'daa84/neovim-lib'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
-""" Swift
+" swift
 Plug 'keith/swift.vim'
 
-""" Vue
+" terraform
+Plug 'hashivim/vim-terraform'
+
+" vue
 Plug 'posva/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'
+Plug 'leafOfTree/vim-vue-plugin'
 
 call plug#end()
 
 let mapleader="\<SPACE>"
 
-
 "-------- windows ----------------
 """" splitting
-nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>L :vsplit<CR>
 nnoremap <leader>J :split<CR>
 
@@ -177,16 +168,6 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'et'
 " ignore files in the .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-"------ nerdtree ------------------
-" when vim opens without filename, load nerdtree automatically
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-""" toggle nerdtree
-nnoremap <leader>f :NERDTreeToggle<Enter>
-""" UI Sugar
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
 
 
 "------ makefiles -----------------
@@ -240,12 +221,11 @@ let g:LanguageClient_serverCommands = {
 
 "------ python --------------------
 """ run black on save
-" autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Black'
 
 
 "------ rust ----------------------
 let g:autofmt_autosave = 1
-
 
 colorscheme dracula
 let g:lightline = { 'colorscheme': 'challenger_deep'}
@@ -265,3 +245,19 @@ hi! Normal ctermbg=NONE guibg=NONE
 autocmd BufEnter *.hy :setlocal filetype=clojure
 
 let g:terraform_fmt_on_save=1
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+""" toggle nerdtree
+nnoremap <leader>f :NERDTreeToggle<Enter>
+""" UI Sugar
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeShowHidden=1
+nnoremap <leader>t :NERDTreeToggle<CR>
+
+" let g:indent_guides_enable_on_vim_startup=1
+" let g:indent_guides_auto_colors=0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd	guibg=red	ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven	guibg=green	ctermbg=4

@@ -42,3 +42,8 @@ eval "$(direnv hook zsh)"
 [ -f $HOME/pbin/exports ] && source $HOME/pbin/exports
 [ -f $HOME/pbin/links ] && source $HOME/pbin/links
 [ -f $HOME/pbin/funcs ] && source $HOME/pbin/funcs
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH=$PATH:/usr/local/go/bin
