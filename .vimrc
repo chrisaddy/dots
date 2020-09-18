@@ -1,3 +1,11 @@
+" colemak
+" noremap n j
+" noremap e k
+" noremap i l
+" noremap k n
+" noremap s i
+" noremap j e
+
 :let g:session_autoload = 'no'
 :let g:session_autosave = 'no'
 
@@ -18,23 +26,27 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " most importantly, vim has to be pretty
 Plug 'dracula/vim'
 Plug 'challenger-deep-theme/vim', {'as': 'challenger-deep'}
-
+Plug 'blindFS/vim-taskwarrior'
+Plug 'powerman/vim-plugin-AnsiEsc'
 " pretty and functional
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
+Plug 'tbabej/taskwiki'
 
+Plug 'kana/vim-textobj-user'
+Plug 'bps/vim-textobj-python'
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
-
+Plug 'vimwiki/vimwiki'
 " tpope is God
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 
 " searching
-
+Plug 'mhinz/vim-grepper'
 Plug 'vim-scripts/grep.vim'
 
 " file navigation
@@ -42,7 +54,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
+
 " Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'SirVer/ultisnips'
 " when vim opens without filename, load nerdtree automatically
@@ -72,7 +85,7 @@ Plug 'google/vim-jsonnet'
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
-Plug 'autozimu/LanguageClient-neovim'
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': './install.sh'}
 
 " go
 Plug 'neovim/go-client'
@@ -146,10 +159,6 @@ nnoremap <leader>K :bnext<CR>
 nnoremap <leader>r :edit!<CR>
 
 
-"------- files -------------------
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-
 nnoremap <leader>ff :CtrlP<CR>
 nnoremap <leader>s :w<CR>
 
@@ -161,18 +170,16 @@ if has("persistent_undo")
     set undofile
 endif
 
-" search in ancestor 'a' is the directory of the current file, 'r' is the
-" nearest ancestor with a .git file
-let g:ctrlp_working_path_mode = 'ra'
-" if file is already open, open in new pane
-let g:ctrlp_switch_buffer = 'et'
-" ignore files in the .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 
 "------ makefiles -----------------
 nnoremap <leader>mt :make test<CR>
 nnoremap <leader>mm :make<CR>
+
+" .vimrc
+
+nnoremap <leader>vs :source ~/.vimrc<CR>
+nnoremap <leader>pi :PlugInstall<CR>
+nnoremap <leader>ve :execute "tab sp" resolve(expand("~/dotfiles/.vimrc"))<CR>
 
 
 "------ json ----------------------
@@ -227,7 +234,7 @@ autocmd BufWritePre *.py execute ':Black'
 "------ rust ----------------------
 let g:autofmt_autosave = 1
 
-colorscheme dracula
+" colorscheme challenger_deep
 let g:lightline = { 'colorscheme': 'challenger_deep'}
 :let g:challenger_deep_termcolors=256
 syntax on
@@ -246,8 +253,8 @@ autocmd BufEnter *.hy :setlocal filetype=clojure
 
 let g:terraform_fmt_on_save=1
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 """ toggle nerdtree
 nnoremap <leader>f :NERDTreeToggle<Enter>
@@ -261,3 +268,16 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 " let g:indent_guides_auto_colors=0
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd	guibg=red	ctermbg=3
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven	guibg=green	ctermbg=4
+"
+" Vim Wiki
+let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown'}]
+au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+set rtp+=/usr/local/opt/fzf
+
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
+
+autocmd BufWinEnter,FileType taskreport colorscheme desert
+
+imap jj <Esc>
