@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+day=$(date +"%Y-%m-%d")
+
+vim Sync/wiki/diary/$day.wiki

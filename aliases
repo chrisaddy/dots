@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+alias clear-swaps="rm -rf ~/.local/share/nvim/swap"
+alias weather="curl wttr.in"
+alias vim="nvim"
+alias ls="lsd -la"
+alias news="newsboat"
+alias mail="neomutt"
+alias rebase="git rebase -i"
+alias gd="git diff --color | diff-so-fancy"
