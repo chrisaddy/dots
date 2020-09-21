@@ -38,10 +38,10 @@ export RUST_BACKTRACE=full
 
 eval "$(direnv hook zsh)"
 
-[ -f $HOME/pbin/aliases ] && source $HOME/pbin/aliases
-[ -f $HOME/pbin/exports ] && source $HOME/pbin/exports
-[ -f $HOME/pbin/links ] && source $HOME/pbin/links
-[ -f $HOME/pbin/funcs ] && source $HOME/pbin/funcs
+[ -f $HOME/pbin/aliases ] && source $HOME/dots/aliases
+[ -f $HOME/pbin/exports ] && source $HOME/dots/exports
+[ -f $HOME/pbin/links ] && source $HOME/dots/links
+[ -f $HOME/pbin/funcs ] && source $HOME/dots/funcs
 [ -f $HOME/dev/data-utils/aliases/addy ] && source $HOME/dev/data-utils/aliases/addy
 
 eval "$(pyenv init -)"

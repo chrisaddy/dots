@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+mkdir -p $HOME/.newsboat
+mkdir -p $HOME/bookmarks/
+
+rm -f $HOME/.vimrc
+rm -f $HOME/.zshrc
+rm -f $HOME/.tmux.conf
+rm -f $HOME/.hyper.js
+
+ln -sf $HOME/dots/.newsboat/urls $HOME/.newsboat/urls
+ln -sf $HOME/dots/.newsboat/config $HOME/.newsboat/config
+ln -sf $HOME/dots/.neomuttrc $HOME/.neomuttrc
+ln -sf $HOME/dots/.vimrc $HOME/.vimrc
+ln -sf $HOME/dots/.zshrc $HOME/.zshrc
+ln -sf $HOME/dots/.tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/dots/.hyper.js $HOME/.hyper.js
