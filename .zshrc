@@ -42,12 +42,12 @@ eval "$(direnv hook zsh)"
 [ -f $HOME/pbin/exports ] && source $HOME/dots/exports
 [ -f $HOME/pbin/links ] && source $HOME/dots/links
 [ -f $HOME/pbin/funcs ] && source $HOME/dots/funcs
-[ -f $HOME/dev/data-utils/aliases/addy ] && source $HOME/dev/data-utils/aliases/addy
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/dots/bin
 export PATH=$PATH:$HOME/dev/data-utils/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
