@@ -5,22 +5,6 @@
 module.exports = {
   config: {
 
-    // paneNavigation: { debug: false,
-    //   hotkeys: {
-	// navigation: {
-	  // left: 'ctrl+h',
-	  // down: 'ctrl+j',
-	  // up: 'ctrl+k',
-	  // right: 'ctrl+l'
-	// },
-    //     jump_prefix: 'ctrl+alt',
-    //     permutation_modifier: 'shift',
-    //     maximize: 'meta+enter'
-    //   }
-    // }
-	  //
- 
-
     activeTab: '🚀',
 
     // choose either `'stable'` for receiving highly polished,
@@ -185,28 +169,4 @@ module.exports = {
     // Example
     // 'window:devtools': 'cmd+alt+o',
   },
-  paneNavigation: {
-    debug: false,
-    hotkeys: {
-      navigation: {
-        left: 'ctrl+shift+h',
-        down: 'ctrl+shift+j',
-        up: 'ctrl+shift+k',
-        right: 'ctrl+shift+l'
-      },
-      jump_prefix: 'ctrl+alt', // completed with 1-9 digits
-      permutation_modifier: 'shift', // Added to jump and navigation hotkeys for pane permutation
-      maximize: 'meta+enter'
-    },
-    showIndicators: true, // Show pane number
-    indicatorPrefix: '^⌥', // Will be completed with pane number
-    indicatorStyle: { // Added to indicator <div>
-      position: 'absolute',
-      top: 0,
-      left: 0,
-        // fontSize: '10px'
-    },
-    focusOnMouseHover: false,
-    inactivePaneOpacity: 0.6 // Set to 1 to disable inactive panes dimming
-  }
 };
