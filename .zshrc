@@ -27,7 +27,6 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	wd
-	poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -43,6 +42,9 @@ eval "$(direnv hook zsh)"
 [ -f $HOME/pbin/links ] && source $HOME/dots/links
 [ -f $HOME/pbin/funcs ] && source $HOME/dots/funcs
 
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -51,3 +53,9 @@ export PATH=$PATH:$HOME/dots/bin
 export PATH=$PATH:$HOME/dev/data-utils/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH=$PATH:$HOME/.pyenv/versions/3.9.2/bin
+export PATH=$PATH:$HOME/.pyenv/versions/3.8.5/bin
+export PATH=$PATH:$HOME/.poetry/bin
+
+alias ls="ls -la"
