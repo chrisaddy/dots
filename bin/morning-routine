@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+check start $HOME/Sync/checklists/morning-routine.md

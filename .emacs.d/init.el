@@ -37,7 +37,7 @@
  ;; If there is more than one, they won't work right.
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(makefile-executor md4rd org-pomodoro dockerfile-mode docker swift-mode org-jira mu4e-overview mu4e evil-collection elfeed-goodies elfeed terraform-mode vterm-toggle magit vue-mode poetry helm-slack org-clock spaceline evil-org company-jedi sx avy neotree evil-commentary ligature fira-code-mode linum-relative helm evil use-package melpa-upstream-visit)))
+   '(rust-mode company multi-term evil-leader helm-projectile projectile elfeed-org dashboard all-the-icons page-break-lines makefile-executor md4rd org-pomodoro dockerfile-mode docker swift-mode org-jira mu4e-overview mu4e evil-collection elfeed-goodies elfeed terraform-mode magit vue-mode poetry org-clock spaceline evil-org company-jedi sx avy neotree evil-commentary ligature fira-code-mode linum-relative helm evil use-package melpa-upstream-visit)))
 (epa-file-enable)
 
 
@@ -95,6 +95,8 @@
 ;                                     "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
 ;                                     "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
 ;                                     "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+
+(use-package rust-mode)
 
 (use-package org
   :config
@@ -171,10 +173,6 @@
 ;;   (evil-collection-init))
 
 
-(use-package makefile-executor
-  :config
-  (add-hook 'makefile-mode-hook 'makefile-executor-mode))
-
 (use-package projectile)
 (use-package helm-projectile
   :after (helm projectile))
@@ -187,7 +185,7 @@
 ; kbds
 (defun jump-to-init-file ()
   (interactive)
-  (find-file "~/.emacs.d/init.el"))
+  (find-file "~/dots/.emacs.d/init.el"))
 
 (defun jump-to-orgs ()
   (interactive)
@@ -218,7 +216,6 @@
     "sf" 'save-buffer
     ;; "sx" 'sx-search
     "t" 'neotree-toggle
-    "vt" 'vterm
     "cf" 'make-empty-file
     "cd" 'make-directory
     ;; jumps
@@ -267,7 +264,6 @@
 
 (use-package poetry)
 
-(use-package vterm)
 (use-package multi-term)
 
 (use-package info)
@@ -363,83 +359,6 @@
 	("CANCELED" . (:foreground "white" :background "#4d4d4d" :weight bold))
 	("DELEGATED" . "pink")
 	("NEXT" . "#000000")))
-
-
-;; (use-package helm-slack
-;;   :after (slack))
-(use-package slack
-  :commands (slack-start)
-  :init
-  (setq slack-buffer-emojify t)
-  (setq slack-prefer-current-team t)
-  :config
-  (slack-register-team
-   :name "penngineering"
-   :default t
-   :token ""
-   :subscribed-channels '(zzz-testing)
-   :full-and-display-names t)
-
-  (evil-define-key 'normal slack-info-mode-map
-    ",u" 'slack-room-update-messages)
-  (evil-define-key 'normal slack-mode-app
-    ",c" 'slack-buffer-kill
-    ",ra" 'slack-message-add-reaction
-    ",rr" 'slack-message-remove-reaction))
-(use-package alert
-  :commands (alert)
-  :init
-  (setq alert-default-style 'notifier))
-
-; (use-package mu4e)
-;; (require 'mu4e)
-
-;; ;; default
-;; (setq mu4e-maildir (expand-file-name "~/Maildir"))
-
-;; (setq mu4e-drafts-folder "/[Gmail].Drafts")
-;; (setq mu4e-sent-folder   "/[Gmail].Sent Mail")
-;; (setq mu4e-trash-folder  "/[Gmail].Trash")
-
-;; ;; don't save message to Sent Messages, GMail/IMAP will take care of this
-;; (setq mu4e-sent-messages-behavior 'delete)
-
-;; ;; setup some handy shortcuts
-;; (setq mu4e-maildir-shortcuts
-;;       '(("/INBOX"             . ?i)
-;;         ("/[Gmail].Sent Mail" . ?s)
-;;         ("/[Gmail].Trash"     . ?t)))
-
-;; ;; allow for updating mail using 'U' in the main view:
-;; (setq mu4e-get-mail-command "offlineimap")
-
-;; ;; something about ourselves
-;; ;; I don't use a signature...
-;; (setq
-;;  user-mail-address "chris.william.addy@gmail.com"
-;;  user-full-name  "chrisaddy"
-;;  ;; message-signature
-;;  ;;  (concat
-;;  ;;    "Foo X. Bar\n"
-;;  ;;    "http://www.example.com\n")
-;; )
-
-;; ;; sending mail -- replace USERNAME with your gmail username
-;; ;; also, make sure the gnutls command line utils are installed
-;; ;; package 'gnutls-bin' in Debian/Ubuntu, 'gnutls' in Archlinux.
-
-;; (require 'smtpmail)
-
-;; (setq message-send-mail-function 'smtpmail-send-it
-;;       starttls-use-gnutls t
-;;       smtpmail-starttls-credentials
-;;       '(("smtp.gmail.com" 587 nil nil))
-;;       smtpmail-auth-credentials
-;;       (expand-file-name "~/.authinfo")
-;;       smtpmail-default-smtp-server "smtp.gmail.com"
-;;       smtpmail-smtp-server "smtp.gmail.com"
-;;       smtpmail-smtp-service 587
-;;       smtpmail-debug-info t)
 
 
 (custom-set-faces

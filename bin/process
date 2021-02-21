@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+from tasklib import TaskWarrior
+# from colorama import Fore, Back, Style
+import sys
+import typer
+
+
+def main():
+    tw = TaskWarrior("~/Sync/.task")
+
+    inbox = tw.tasks.filter(status='pending', tags__contains=['in'])
+
+    with typer.progressbar(inbox) as progress:
+        for p in progress:
+            description = typer.style(f"\n{p}", fg=typer.colors.GREEN, bold=True)
+            typer.echo(description)
+            actionable = typer.prompt("is this actionable? (yes/no)")
+
+            if actionable == "no":
+                delete = typer.prompt("...should this be deleted? (yes/no)")
+                if delete == "no":
+                    incubate = typer.prompt("......should this be incubated? (yes/no)")
+                    if incubate == "no":
+                        references = typer.echo(".........put this in reference")
+
+            typer.echo("processed")
+            # print(dir(p))
+
+
+if __name__ == "__main__":
+    typer.run(main)
