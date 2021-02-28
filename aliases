@@ -16,6 +16,5 @@ alias mr="make run"
 alias mbr="make build run"
 alias mc="make clean"
 alias derek="make"
-alias in='task add +in'
 alias cicd='make build run test push && TAG=dev make build push && TAG=prod make build push clean'
 alias mbp='make build push'

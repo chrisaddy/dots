@@ -122,6 +122,8 @@ if [ -f '/Users/chrisaddy/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 function mm() { mkdir -vp $1 && cd $1 }
 
+
+## taskwarrior stuff
 tickle () {
     deadline=$1
     shift
@@ -144,9 +146,21 @@ read_and_review (){
 }
 
 alias rnr=read_and_review
+export GOOGLE_USERNAME=chris.addy@penn-interactive.com
+
+alias in='task add priority:inbox'
+inbox () { task list priority:inbox }
+alias t="clear && task priority:doing or priority:emergency list"
+alias ts="task sync"
+ready () { task $1 modify -in priority:ready}
+backlog () { task +ready list}
+doing () { task $1 modify priority:doing && task $1 start }
+emergency () { task $1 modify priority:emergency && task $1 start }
+pause () { task $1 stop }
+retro (){ task $1 modify priority:retro && task $1 stop }
+fin () { task $1 done }
 
 
 ide (){ tmux new-session -A -t $([ -z "$PROJECT" ] && echo $(basename "`pwd`") || echo $PROJECT) -c . }
 goto (){ tmux detach; cd "$HOME/dev/$(ls ~/dev | fzf | awk '{print $NF}')" && ide }
 
-export GOOGLE_USERNAME=chris.addy@penn-interactive.com

@@ -21,7 +21,7 @@ data.location=~/Sync/.task
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-red-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-green-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-blue-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-violets-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-violets-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-blue-256.theme
@@ -44,8 +44,25 @@ taskd.credentials=inthe_am/chris.william.addy/048531c5-d3ca-4ba8-8f93-79830ae85a
 taskd.trust=ignore hostname
 
 
-report.in.columns           = id,description
+report.in.columns           = id,description,priority
 report.in.description       = Inbox
 report.in.filter            = status:pending limit:page (+in)
-report.in.labels            = ID,Description
+report.in.labels            = ID,Description,Priority
 
+color.uda.priority.emergency=color1
+color.uda.priority.doing=color2
+color.uda.priority.ready=color4
+color.uda.priority.inbox=color14
+uda.priority.values=emergency,doing,ready,inbox,retro,done,
+urgency.uda.priority.emergency.coefficient=10.0
+urgency.uda.priority.doing.coefficient=5.0
+urgency.uda.priority.ready.coefficient=2.0
+urgency.uda.priority.inbox.coefficient=0.5
+urgency.uda.priority.retro.coefficient=0.1
+urgency.uda.priority.done.coefficient=0.01
+
+report.doing.description=kanban doing column
+report.doing.columns=id,project,priority,description,due
+report.doing.labels=ID,Project,Priority,Description,Due
+report.doing.sort=due-,project+
+report.simple.filter=priority:doing
