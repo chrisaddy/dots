@@ -1,0 +1,37 @@
+download-retries 4
+prepopulate-query-feeds yes
+show-read-feeds no
+feed-sort-order unreadarticlecount-asc
+mark-as-read-on-hover yes
+
+color listnormal         color15 default
+color listnormal_unread  color2  default
+color listfocus          default color0
+color background         default default
+color article            default default
+color end-of-text-marker color8  default
+color info               color4  color8
+color hint-separator     default color8
+color title              color14 color8
+
+
+
+browser firefox
+macro v set browser "setsid -f mpv --really-quiet --no-terminal" ; open-in-browser ; set browser firefox
+bind-key g home
+bind-key U show-urls
+
+goto-next-feed no
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key j down article
+bind-key k up article
+bind-key a mark-all-above-as-read articlelist
+bind-key o open-in-browser-and-mark-read article
+bind-key o open-in-browser-and-mark-read articlelist
+
+save-path ~/read-later/
