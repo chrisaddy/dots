@@ -6,5 +6,6 @@ link:
 	stow oh-my-posh
 	stow lazydocker
 	stow nvim
+	stow tmux
 	stow mise
 	stow newsboat
