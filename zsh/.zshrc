@@ -23,6 +23,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light mfaerevaag/wd
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -62,7 +63,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='exa -la --color always'
@@ -90,9 +91,9 @@ alias note="gt modify --edit -q"
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd cd --hook pwd zsh)"
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 
 export EDITOR=nvim
