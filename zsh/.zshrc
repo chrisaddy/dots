@@ -70,7 +70,7 @@ alias vim='nvim'
 alias vimrc="cd ~/.config/nvim && vim"
 alias vi="nvim"
 alias c='clear'
-alias cp="$HOME/.cargo/bin/coreutils cp"
+# alias cp="$HOME/.cargo/bin/coreutils cp"
 alias date="$HOME/.cargo/bin/coreutils date"
 alias echo="$HOME/.cargo/bin/coreutils echo"
 alias env="$HOME/.cargo/bin/coreutils env"
@@ -104,7 +104,7 @@ mise() {
   local command
   command="${1:-}"
   if [ "$#" = 0 ]; then
-    command /Users/chrisaddy/.cargo/bin/mise
+    command $HOME.cargo/bin/mise
     return
   fi
   shift
@@ -113,16 +113,16 @@ mise() {
   deactivate|s|shell)
     # if argv doesn't contains -h,--help
     if [[ ! " $@ " =~ " --help " ]] && [[ ! " $@ " =~ " -h " ]]; then
-      eval "$(command /Users/chrisaddy/.cargo/bin/mise "$command" "$@")"
+      eval "$(command $HOME/.cargo/bin/mise "$command" "$@")"
       return $?
     fi
     ;;
   esac
-  command /Users/chrisaddy/.cargo/bin/mise "$command" "$@"
+  command $HOME/.cargo/bin/mise "$command" "$@"
 }
 
 _mise_hook() {
-  eval "$(/Users/chrisaddy/.cargo/bin/mise hook-env -s zsh)";
+  eval "$($HOME/.cargo/bin/mise hook-env -s zsh)";
 }
 typeset -ag precmd_functions;
 if [[ -z "${precmd_functions[(r)_mise_hook]+1}" ]]; then
@@ -138,7 +138,7 @@ if [ -z "${_mise_cmd_not_found:-}" ]; then
     [ -n "$(declare -f command_not_found_handler)" ] && eval "${$(declare -f command_not_found_handler)/command_not_found_handler/_command_not_found_handler}"
 
     function command_not_found_handler() {
-        if /Users/chrisaddy/.cargo/bin/mise hook-not-found -s zsh -- "$1"; then
+        if $HOME/.cargo/bin/mise hook-not-found -s zsh -- "$1"; then
           _mise_hook
           "$@"
         elif [ -n "$(declare -f _command_not_found_handler)" ]; then
@@ -150,5 +150,5 @@ if [ -z "${_mise_cmd_not_found:-}" ]; then
     }
 fi
 
-source /Users/chrisaddy/.zsh_kraft_completion;
+source $HOME/.zsh_kraft_completion;
 source $HOME/.zshrc-private
