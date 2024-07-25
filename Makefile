@@ -7,5 +7,4 @@ link:
 	stow lazydocker
 	stow nvim
 	stow tmux
-	stow mise
 	stow newsboat
