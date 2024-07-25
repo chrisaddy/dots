@@ -73,6 +73,6 @@ return {
     vim.keymap.set({ "n", "v" }, "<leader>cL", openai_help, { desc = "llm openai_help" })
     vim.keymap.set({ "n", "v" }, "<leader>cl", openai_replace, { desc = "llm openai" })
     vim.keymap.set({ "n", "v" }, "<leader>cI", anthropic_help, { desc = "llm anthropic_help" })
-    vim.keymap.set({ "n", "v" }, "<leader>i", anthropic_replace, { desc = "llm anthropic" })
+    vim.keymap.set({ "n", "v" }, "<leader>ci", anthropic_replace, { desc = "llm anthropic" })
   end,
 }
