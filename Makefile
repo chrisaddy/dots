@@ -8,5 +8,6 @@ link:
 	stow nvim
 	stow tmux
 	stow newsboat
+	stow bat
 	stow scripts
 	find scripts/bin -type f -exec chmod +x {} \;
