@@ -66,11 +66,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias add="sudo pacman -Syyu"
 alias ls='exa -la --color always'
-alias vim='nvim'
-alias vimrc="cd ~/.config/nvim && vim"
-alias vi="nvim"
 alias c='clear'
+alias cargo-watch="cargo watch -x check -x test -x run"
 # alias cp="$HOME/.cargo/bin/coreutils cp"
 # alias date="$HOME/.cargo/bin/coreutils date"
 # alias echo="$HOME/.cargo/bin/coreutils echo"

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+pushd $HOME/dotfiles
+make
+popd
+sudo pacman -Syyu
+sudo paru -Syyu
+nvim -c "Lazy update" -c "qa!"
