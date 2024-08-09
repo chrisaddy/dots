@@ -72,20 +72,20 @@ alias vimrc="cd ~/.config/nvim && vim"
 alias vi="nvim"
 alias c='clear'
 # alias cp="$HOME/.cargo/bin/coreutils cp"
-alias date="$HOME/.cargo/bin/coreutils date"
-alias echo="$HOME/.cargo/bin/coreutils echo"
-alias env="$HOME/.cargo/bin/coreutils env"
-alias head="$HOME/.cargo/bin/coreutils head"
-alias ln="$HOME/.cargo/bin/coreutils ln"
-alias mv="$HOME/.cargo/bin/coreutils mv"
-alias printf="$HOME/.cargo/bin/coreutils printf"
-alias pwd="$HOME/.cargo/bin/coreutils pwd"
-alias rm="$HOME/.cargo/bin/coreutils rm"
-alias sleep="$HOME/.cargo/bin/coreutils sleep"
-alias tail="$HOME/.cargo/bin/coreutils tail"
-alias tee="$HOME/.cargo/bin/coreutils tee"
-alias touch="$HOME/.cargo/bin/coreutils touch"
-alias wc="$HOME/.cargo/bin/coreutils wc"
+# alias date="$HOME/.cargo/bin/coreutils date"
+# alias echo="$HOME/.cargo/bin/coreutils echo"
+# alias env="$HOME/.cargo/bin/coreutils env"
+# alias head="$HOME/.cargo/bin/coreutils head"
+# alias ln="$HOME/.cargo/bin/coreutils ln"
+# alias mv="$HOME/.cargo/bin/coreutils mv"
+# alias printf="$HOME/.cargo/bin/coreutils printf"
+# alias pwd="$HOME/.cargo/bin/coreutils pwd"
+# alias rm="$HOME/.cargo/bin/coreutils rm"
+# alias sleep="$HOME/.cargo/bin/coreutils sleep"
+# alias tail="$HOME/.cargo/bin/coreutils tail"
+# alias tee="$HOME/.cargo/bin/coreutils tee"
+# alias touch="$HOME/.cargo/bin/coreutils touch"
+# alias wc="$HOME/.cargo/bin/coreutils wc"
 alias cargo-watch="cargo watch -x check -x test -x run"
 alias note="gt modify --edit -q"
 
@@ -153,3 +153,13 @@ fi
 
 source $HOME/.zsh_kraft_completion;
 source $HOME/.zshrc-private
+
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+. "$HOME/.cargo/env"
+
+. "/Users/chrisaddy/.local/share/mise/installs/rust/1.80.0/env"
+
+
+alias code="open -g -a Cursor"

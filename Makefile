@@ -8,3 +8,4 @@ link:
 	stow nvim
 	stow tmux
 	stow newsboat
+	stow bat
