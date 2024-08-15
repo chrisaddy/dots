@@ -114,3 +114,10 @@ fpath+=~/.zfunc
 
 alias code="open -g -a Cursor"
 eval "$(/home/chrisaddy/.local/bin/mise activate zsh)"
+
+
+ad() {
+  dir=$(wd list | awk '{print $1}' | fzf)
+  wd $dir
+  lf
+}

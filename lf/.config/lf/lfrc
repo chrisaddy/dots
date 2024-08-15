@@ -6,10 +6,25 @@ set icons true
 set ignorecase true
 
 map <enter> open
+map w set-wallpaper
 
 cmd open ${{
-  case $(fiule --mime-type "$f" -bL) in
+  case $(file --mime-type "$f" -bL) in
     text/*) $EDITOR "$f";;
     *) xdg-open "$f";;
   esac
+}}
+
+cmd set-wallpaper ${{
+  selected="$f"
+  filename=$(basename "$f")
+  hyprctl hyprpaper preload "$HOME/dots/wallpapers/$filename"
+  hyprctl hyprpaper wallpaper ",$HOME/dots/wallpapers/$filename"
+
+  echo "Do you want to make this the default wallpaper? (y/N)"
+  read answer
+  if [ "$answer" = "y" ]; then
+    sed -i "s|wallpapers/.*|wallpapers/$filename|" "$HOME/.config/hypr/hyprpaper.conf"
+    echo "updated hyprpaper config with wallpaper"
+  fi
 }}
