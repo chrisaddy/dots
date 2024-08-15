@@ -1,0 +1,15 @@
+set preview true
+set previewer ~/.config/lf/preview
+set hidden true
+set drawbox true
+set icons true
+set ignorecase true
+
+map <enter> open
+
+cmd open ${{
+  case $(fiule --mime-type "$f" -bL) in
+    text/*) $EDITOR "$f";;
+    *) xdg-open "$f";;
+  esac
+}}
