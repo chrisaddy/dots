@@ -87,7 +87,7 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": "headphones",
             "hands-free": "",
             "headset": "",
             "phone": "",
@@ -130,10 +130,10 @@
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
-	"on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
+        "format-icons": ["X", "", "", "", "", "", "", "", "", ""],
+      "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
     },
 
     "tray": {
