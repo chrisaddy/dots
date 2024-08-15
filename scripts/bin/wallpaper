@@ -1,0 +1,6 @@
+#/usr/bin/env sh
+
+pushd $HOME/dots/wallpapers
+selected_wallpaper=$(lf -selection-path /tmp/selected_wallpaper)
+
+echo $selected_wallpaper

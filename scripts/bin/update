@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
-pushd $HOME/dotfiles
-make
-popd
+cd $HOME/dotfiles
+sudo make
 sudo pacman -Syyu
-sudo paru -Syyu
+paru -Syyu
 nvim -c "Lazy update" -c "qa!"
+
+pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"
+paru -Qqe > "$HOME/dots/packages-list/paru.txt"
