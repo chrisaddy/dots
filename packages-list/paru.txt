@@ -58,6 +58,8 @@ lsix
 luarocks
 make
 markdownlint
+markdownlint-cli
+markdownlint-cli2
 nano
 neovim
 noto-fonts
@@ -67,6 +69,7 @@ nvidia-utils
 obs-studio
 odt2txt
 oh-my-posh
+ollama
 openssh
 opentofu
 otf-aurulent-nerd
@@ -86,6 +89,7 @@ paru-debug
 pavucontrol
 polkit
 poppler
+postgresql-libs
 prettier
 pulseaudio-bluetooth
 pulumi
@@ -94,6 +98,8 @@ qemu-system-x86
 qt5-wayland
 qt6-wayland
 ranger
+redis
+redis-rejson
 ripgrep
 ruby
 ruff
@@ -105,6 +111,8 @@ sway
 swayidle
 swaylock
 tailscale
+terraform
+terraform-ls
 tree
 ttf-0xproto-nerd
 ttf-3270-nerd
@@ -167,11 +175,15 @@ unrar
 unzip
 v4l-utils
 vim
+vlc
 vulkan-tools
+w3m
 waybar
 wget
 wlroots
 wofi
+yay
+yay-debug
 zig
 zls
 zoxide
