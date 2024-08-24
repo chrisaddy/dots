@@ -5,7 +5,9 @@ sudo make
 sudo pacman -Syyu
 paru -Syyu
 yay -Syyu
-git add . & git commit -m 'updates' & git push
+git add . 
+git commit -m 'updates' 
+git push
 
 # cd $HOME/notes
 # rm -f .git/index.lock
