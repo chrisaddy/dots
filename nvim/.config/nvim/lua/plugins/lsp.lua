@@ -1,5 +1,4 @@
-return {
-  {
+return {  {
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -124,4 +123,5 @@ return {
       }
     end,
   },
-}
+
+  }

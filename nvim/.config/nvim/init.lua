@@ -22,7 +22,6 @@ vim.opt.list = true -- Show invisible characters
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Define which invisible characters to show and how
 vim.opt.inccommand = 'split' -- Show effects of substitutions incrementally in a split window
 vim.opt.cursorline = true -- Highlight the line containing the cursor
-
 vim.opt.scrolloff = 10 -- Keep 10 lines above and below the cursor when scrolling
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
