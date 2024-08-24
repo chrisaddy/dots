@@ -18,6 +18,7 @@ docker
 docker-compose
 docx2txt
 efibootmgr
+elinks
 eza
 fd
 ffmpegthumbnailer

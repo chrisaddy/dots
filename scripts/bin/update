@@ -1,17 +1,22 @@
 #!/usr/bin/env sh
 
-cd $HOME/dotfiles
+pushd $HOME/dotfiles
 sudo make
 sudo pacman -Syyu
 paru -Syyu
 yay -Syyu
 nvim -c "Lazy update" -c "qa!"
+git pull
+git add .
+git commit -m 'updates'
+git push
 
 pushd $HOME/notes
 git pull
 git add .
-git commit -m "updates"
+git commit -m 'updates'
 git push
+popd
 popd
 
 pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"

@@ -29,8 +29,9 @@ return {
         { '<leader>gi', group = '[G]it Issues' },
         { '<leader>gil', '<cmd>Octo issue list<cr>', desc = '[G]it Issue List' },
         { '<leader>gic', '<cmd>Octo issue create<cr>', desc = '[G]it Issue Create' },
-        { '<leader>gpc', '<cmd>Octo pr create<cr>', desc = '[G]it Pull Request Create' },
-        { '<leader>gg', '<cmd>LazyGit<cr>' },
+        { '<leader>gpc', '<cmd>Octo pr create<cr>', desc = '[G]it Pull [R]equest [C]reate' },
+        { '<leader>gg', '<cmd>LazyGit<cr>', desc = '[G]it dashboard' },
+        { '<leader>gpl', '<cmd>Octo pr list<cr>', desc = '[G]it [P]ull Request [L]ist' },
       }
     end,
   },
