@@ -1,23 +1,15 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-pushd $HOME/dotfiles
+cd $HOME/dots
 sudo make
 sudo pacman -Syyu
 paru -Syyu
 yay -Syyu
-nvim -c "Lazy update" -c "qa!"
-git pull
-git add .
-git commit -m 'updates'
-git push
+git add . & git commit -m 'updates' & git push
 
-pushd $HOME/notes
-git pull
-git add .
-git commit -m 'updates'
-git push
-popd
-popd
-
-pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"
-paru -Qqe > "$HOME/dots/packages-list/paru.txt"
+# cd $HOME/notes
+# rm -f .git/index.lock
+# git add . & git commit -m 'updates' & git push
+#
+# pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"
+# paru -Qqe > "$HOME/dots/packages-list/paru.txt"

@@ -1,4 +1,5 @@
-return {  {
+return {
+  {
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -80,7 +81,6 @@ return {  {
         -- clangd = {},
         gopls = {},
         pyright = {},
-        rust_analyzer = {},
         terraformls = {
           filetypes = { 'terraform' },
           settings = {
@@ -123,5 +123,4 @@ return {  {
       }
     end,
   },
-
-  }
+}
