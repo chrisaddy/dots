@@ -4,7 +4,15 @@ cd $HOME/dotfiles
 sudo make
 sudo pacman -Syyu
 paru -Syyu
+yay -Syyu
 nvim -c "Lazy update" -c "qa!"
+
+pushd $HOME/notes
+git pull
+git add .
+git commit -m "updates"
+git push
+popd
 
 pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"
 paru -Qqe > "$HOME/dots/packages-list/paru.txt"

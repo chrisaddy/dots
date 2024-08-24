@@ -121,3 +121,7 @@ ad() {
   wd $dir
   lf
 }
+
+. "/home/chrisaddy/.local/share/mise/installs/rust/1.80.1/env"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
