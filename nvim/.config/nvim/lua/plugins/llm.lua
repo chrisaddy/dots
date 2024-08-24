@@ -13,50 +13,15 @@ return {
           suggestion_color = '#ffffff',
           cterm = 244,
         },
-        log_level = 'error', -- set to "off" to disable logging completely
-        disable_inline_completion = false, -- disables inline completion for use with cmp
-        disable_keymaps = false, -- disables built in keymaps for more manual control
-      }
-    end,
-  },
-  {
-    'Bryley/neoai.nvim',
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-    },
-    cmd = {
-      'NeoAI',
-      'NeoAIOpen',
-      'NeoAIClose',
-      'NeoAIToggle',
-      'NeoAIContext',
-      'NeoAIContextOpen',
-      'NeoAIContextClose',
-      'NeoAIInject',
-      'NeoAIInjectCode',
-      'NeoAIInjectContext',
-      'NeoAIInjectContextCode',
-    },
-    keys = {
-      { '<leader>as', desc = 'summarize text' },
-      { '<leader>ag', desc = 'generate git message' },
-      { '<leader>aa', '<cmd>NeoAIToggle<cr>', desc = 'NeoAI', mode = 'n' },
-      { '<leader>aa', '<cmd>NeoAIContextOpen<cr>', desc = 'NeoAI with Conext', mode = 'v' },
-    },
-    config = function()
-      require('neoai').setup {
-        ui = {
-          output_popup_text = 'Al',
-        },
-        models = {
-          { name = 'openai', model = 'gpt-4o-mini' },
-        },
+        log_level = 'error',
+        disable_inline_completion = false,
+        disable_keymaps = false,
       }
     end,
   },
   {
     'frankroeder/parrot.nvim',
-    dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
+    dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify', 'nvim-telescope/telescope.nvim' },
     config = function()
       require('parrot').setup {
         providers = {
@@ -81,11 +46,86 @@ return {
           },
         },
         user_input_ui = 'buffer',
+        hooks = {
+          Docstring = function(prt, params)
+            local template = [[
+              You are a skilled programmer tasked with creating clear, concise, and informative docstrings.
+
+              Briefly describe the purpose of the function/method/class.
+              List parameters with their types and explanations.
+              Specify the return value type and description.
+              Note any exceptions raised.
+              Provide a short example of usage if helpful.
+              Use the appropriate docstring format for the given language (e.g., PEP 257 for Python).
+              Keep explanations clear and concise.
+              Analyze the provided code and generate an appropriate docstring based on these guidelines.
+
+              Do not include any text except for the code itself. Do not include backticks.
+
+              Consider the folowing content from /home/chrisaddy/dots/nvim/.config/nvim/lua/plugins/llm.lua:
+
+              ```lua
+              {{selection}}
+              ```
+            ]]
+            local model_obj = prt.get_model 'command'
+            prt.Prompt(params, prt.ui.Target.rewrite, model_obj, nil, template)
+          end,
+        },
       }
-      require('which-key').add {
-        { '<leader>ai', '<cmd>PrtChatToggle<cr>', mode = 'n' },
-        { '<leader>ai', '<cmd>PrtRewrite<cr>', mode = 'v' },
+
+      local telescope = require 'telescope'
+      local pickers = require 'telescope.pickers'
+      local finders = require 'telescope.finders'
+      local conf = require('telescope.config').values
+      local actions = require 'telescope.actions'
+      local action_state = require 'telescope.actions.state'
+
+      local commands = {
+        { 'write docstring', 'PrtDocstring' },
+        { 'rewrite', 'PrtRewrite' },
+        { 'chat', 'PrtChatToggle' },
       }
+
+      local run_command = function(command)
+        vim.cmd(command)
+      end
+
+      local parrot_picker = function(opts)
+        opts = opts or {}
+        pickers
+          .new(opts, {
+            prompt_title = 'Parrot Commands',
+            finder = finders.new_table {
+              results = commands,
+              entry_maker = function(entry)
+                return {
+                  value = entry,
+                  display = entry[1],
+                  ordinal = entry[1],
+                }
+              end,
+            },
+            sorter = conf.generic_sorter(opts),
+            attach_mappings = function(prompt_bufnr, map)
+              actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                run_command(selection.value[2])
+              end)
+              return true
+            end,
+          })
+          :find()
+      end
+
+      require('telescope').register_extension {
+        exports = {
+          parrot = parrot_picker,
+        },
+      }
+
+      vim.keymap.set('n', '<leader>ap', '<cmd>Telescope parrot<CR>', { noremap = true, silent = true, desc = 'Open Parrot' })
     end,
   },
 }

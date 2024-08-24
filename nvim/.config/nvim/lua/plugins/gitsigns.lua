@@ -58,6 +58,12 @@ return {
         -- Toggles
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' })
+
+        vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = '#00ff00', bg = 'NONE' }) -- Green for additions, no background
+        vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = '#ffff00', bg = 'NONE' }) -- Yellow for changes, no background
+        vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = '#ff0000', bg = 'NONE' }) -- Red for deletions, no background
+        vim.api.nvim_set_hl(0, 'GitSignsChangeDelete', { fg = '#ff00ff', bg = 'NONE' }) -- Magenta for changed deletions, no background
+        vim.api.nvim_set_hl(0, 'GitSignsTopDelete', { fg = '#ffff00', bg = 'NONE' }) -- Yellow for top deletions, no background
       end,
     },
   },
