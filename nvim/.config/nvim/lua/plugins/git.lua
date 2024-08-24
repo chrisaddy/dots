@@ -1,5 +1,18 @@
 return {
   {
+    'chrisaddy/graphite.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require('graphite').setup()
+      require('which-key').add {
+        { '<leader>g', group = '[G]it' },
+        { '<leader>gb', '<cmd>GraphiteBranches<cr>', desc = '[G]it [B]ranches' },
+      }
+    end,
+  },
+  {
     'pwntester/octo.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',

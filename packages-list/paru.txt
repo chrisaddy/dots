@@ -1,3 +1,4 @@
+alsa-utils
 aws-cli
 base
 base-devel
@@ -27,6 +28,7 @@ fzf
 gcc
 git
 github-cli
+glow
 gnumeric
 gofumpt
 google-chrome
@@ -173,6 +175,8 @@ ttf-zed-mono-nerd
 ueberzug
 unrar
 unzip
+usbutils
+uv
 v4l-utils
 vim
 vlc
