@@ -11,7 +11,9 @@ git push
 
 cd $HOME/notes
 rm -f .git/index.lock
-git add . & git commit -m 'updates' & git push
+git add . 
+git commit -m 'updates' 
+git push
 
 pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"
 paru -Qqe > "$HOME/dots/packages-list/paru.txt"
