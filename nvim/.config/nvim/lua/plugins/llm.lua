@@ -74,13 +74,6 @@ return {
         },
       }
 
-      local telescope = require 'telescope'
-      local pickers = require 'telescope.pickers'
-      local finders = require 'telescope.finders'
-      local conf = require('telescope.config').values
-      local actions = require 'telescope.actions'
-      local action_state = require 'telescope.actions.state'
-
       local commands = {
         { 'write docstring', 'PrtDocstring' },
         { 'rewrite', 'PrtRewrite' },
@@ -91,7 +84,15 @@ return {
         vim.cmd(command)
       end
 
+      local telescope = require 'telescope'
+
       local parrot_picker = function(opts)
+        local pickers = require 'telescope.pickers'
+        local finders = require 'telescope.finders'
+        local conf = require('telescope.config').values
+        local actions = require 'telescope.actions'
+        local action_state = require 'telescope.actions.state'
+
         opts = opts or {}
         pickers
           .new(opts, {
@@ -119,13 +120,13 @@ return {
           :find()
       end
 
-      require('telescope').register_extension {
+      telescope.register_extension {
         exports = {
           parrot = parrot_picker,
         },
       }
 
-      vim.keymap.set('n', '<leader>ap', '<cmd>Telescope parrot<CR>', { noremap = true, silent = true, desc = 'Open Parrot' })
+      vim.api.nvim_set_keymap('n', '<leader>ap', [[<cmd>Telescope parrot<CR>]], { noremap = true, silent = true, desc = 'Open Parrot' })
     end,
   },
 }
