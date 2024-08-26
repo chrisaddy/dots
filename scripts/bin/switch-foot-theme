@@ -1,0 +1,25 @@
+#!/bin/bash
+
+CONFIG_FILE="$HOME/.config/foot/foot.ini"
+DARK_THEME="$HOME/.config/foot/themes/tokyonight-moon.ini"
+LIGHT_THEME="$HOME/.config/foot/themes/tokyonight-day.ini"
+
+switch_theme() {
+    sed -i "s|^include=.*$|include=$1|" "$CONFIG_FILE"
+    echo "Switched to $(basename "$1")"
+    echo "Please restart Foot or reload the configuration for changes to take effect."
+}
+
+case "$1" in
+    "dark")
+        switch_theme "$DARK_THEME"
+        ;;
+    "light")
+        switch_theme "$LIGHT_THEME"
+        ;;
+    *)
+        echo "Usage: $0 {dark|light}"
+        exit 1
+        ;;
+esac
+

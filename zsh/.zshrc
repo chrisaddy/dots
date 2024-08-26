@@ -109,9 +109,6 @@ fpath+=~/.zfunc
 
 . "$HOME/.cargo/env"
 
-. "/Users/chrisaddy/.local/share/mise/installs/rust/1.80.0/env"
-
-
 alias code="open -g -a Cursor"
 eval "$(/home/chrisaddy/.local/bin/mise activate zsh)"
 
