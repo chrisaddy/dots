@@ -16,7 +16,6 @@ return {
         require 'neotest-plenary',
       },
       adapters = {
-        require 'rustaceanvim.neotest',
         require 'neotest-python',
         require 'neotest-plenary',
         require 'neotest-go' {

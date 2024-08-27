@@ -1,7 +1,4 @@
 return {
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^5',
-    lazy = false,
-  },
+  'mrcjkb/rustaceanvim',
+  lazy = false,
 }

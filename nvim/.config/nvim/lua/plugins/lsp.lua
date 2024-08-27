@@ -4,26 +4,18 @@ return {
     ft = 'lua',
     opts = {
       library = {
-        -- Load luvit types when the `vim.uv` word is found
         { path = 'luvit-meta/library', words = { 'vim%.uv' } },
       },
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
-    -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
@@ -77,48 +69,44 @@ return {
       })
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-      local servers = {
-        -- clangd = {},
-        gopls = {},
-        pyright = {},
-        terraformls = {
-          filetypes = { 'terraform' },
-          settings = {
-            terraform = {
-              format = {
-                enabled = true,
-                on_save = true,
-              },
-            },
-          },
+
+      require('mason').setup()
+      require('mason-tool-installer').setup {
+        ensure_installed = {
+          'clangd',
+          'gopls',
+          'pyright',
+          'terraformls',
+          'lua_ls',
+          'stylua', -- Used to format Lua code
         },
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
+      }
+
+      require('mason-lspconfig').setup()
+
+      require('lspconfig').clangd.setup { capabilities = capabilities }
+      require('lspconfig').gopls.setup { capabilities = capabilities }
+      require('lspconfig').pyright.setup { capabilities = capabilities }
+      require('lspconfig').terraformls.setup {
+        capabilities = capabilities,
+        filetypes = { 'terraform' },
+        settings = {
+          terraform = {
+            format = {
+              enabled = true,
+              on_save = true,
             },
           },
         },
       }
-      require('mason').setup()
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-      })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
+      require('lspconfig').lua_ls.setup {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = 'Replace',
+            },
+          },
         },
       }
     end,
