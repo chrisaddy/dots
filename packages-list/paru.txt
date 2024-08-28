@@ -65,6 +65,7 @@ markdownlint-cli
 markdownlint-cli2
 nano
 neovim
+net-tools
 noto-fonts
 noto-fonts-emoji
 nvidia
