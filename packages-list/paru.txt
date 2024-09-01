@@ -108,6 +108,7 @@ ripgrep
 ruby
 ruff
 rust-analyzer
+slurp
 socat
 stow
 sudo
@@ -188,6 +189,7 @@ waybar
 wget
 wlroots
 wofi
+xdg-desktop-portal-wlr
 yay
 yay-debug
 zig

@@ -122,3 +122,6 @@ ad() {
 . "/home/chrisaddy/.local/share/mise/installs/rust/1.80.1/env"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+. ~/.nix-profile/etc/profile.d/nix.sh
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
