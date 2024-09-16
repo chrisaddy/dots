@@ -2,7 +2,17 @@
   "lockfile-version": 1,
   "manifest": {
     "version": 1,
-    "install": {},
+    "install": {
+      "exa": {
+        "pkg-path": "exa"
+      },
+      "lua": {
+        "pkg-path": "lua"
+      },
+      "stow": {
+        "pkg-path": "stow"
+      }
+    },
     "vars": {},
     "hook": {},
     "profile": {},
@@ -21,5 +31,374 @@
     "services": {},
     "build": {}
   },
-  "packages": []
+  "packages": [
+    {
+      "attr_path": "exa",
+      "broken": false,
+      "derivation": "/nix/store/kl61866l4995mw6c85dir0fijc4vxzyb-exa-unstable-2023-03-01.drv",
+      "description": "Replacement for 'ls' written in Rust",
+      "install_id": "exa",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "exa-unstable-2023-03-01",
+      "pname": "exa",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "unstable-2023-03-01",
+      "outputs_to_install": [
+        "out",
+        "man"
+      ],
+      "outputs": {
+        "man": "/nix/store/549s3qg3qrhyjjwwin29ma4hwqs3938j-exa-unstable-2023-03-01-man",
+        "out": "/nix/store/awvk6hp7d1mr313xan0n29akwfd6cbdw-exa-unstable-2023-03-01"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "exa",
+      "broken": false,
+      "derivation": "/nix/store/cc4zv72p38qbpcwf6b04ag33zgmxj9bm-exa-unstable-2023-03-01.drv",
+      "description": "Replacement for 'ls' written in Rust",
+      "install_id": "exa",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "exa-unstable-2023-03-01",
+      "pname": "exa",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "unstable-2023-03-01",
+      "outputs_to_install": [
+        "out",
+        "man"
+      ],
+      "outputs": {
+        "man": "/nix/store/qsyj83prwsbss7rkza5dim608nz6blq8-exa-unstable-2023-03-01-man",
+        "out": "/nix/store/inlz5cizqgsqw3ivyhdfx06yiaszqshs-exa-unstable-2023-03-01"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "exa",
+      "broken": false,
+      "derivation": "/nix/store/pkjc6c907pzzkhi0s5m405ghx02c539l-exa-unstable-2023-03-01.drv",
+      "description": "Replacement for 'ls' written in Rust",
+      "install_id": "exa",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "exa-unstable-2023-03-01",
+      "pname": "exa",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "unstable-2023-03-01",
+      "outputs_to_install": [
+        "out",
+        "man"
+      ],
+      "outputs": {
+        "man": "/nix/store/sbbhcimxw42asmdhjnnp4zkjgwjj24ax-exa-unstable-2023-03-01-man",
+        "out": "/nix/store/52685q7wa2lks572nqyvaibpqj1x47jg-exa-unstable-2023-03-01"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "exa",
+      "broken": false,
+      "derivation": "/nix/store/fwvk66brfmb05jd1vzsvpqy4d45v4iii-exa-unstable-2023-03-01.drv",
+      "description": "Replacement for 'ls' written in Rust",
+      "install_id": "exa",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "exa-unstable-2023-03-01",
+      "pname": "exa",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "unstable-2023-03-01",
+      "outputs_to_install": [
+        "out",
+        "man"
+      ],
+      "outputs": {
+        "man": "/nix/store/7arx9z5xf60g7iyhxj80j9g21gs1xgsk-exa-unstable-2023-03-01-man",
+        "out": "/nix/store/lh4c4lvn5bpndiml3ajhjarcpy9wpf3g-exa-unstable-2023-03-01"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "lua",
+      "broken": false,
+      "derivation": "/nix/store/cm3z415cgcl2c1k78x9xffcq55sm8cfx-lua-5.2.4.drv",
+      "description": "Powerful, fast, lightweight, embeddable scripting language",
+      "install_id": "lua",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "lua-5.2.4",
+      "pname": "lua",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/ci561lm8pc66ri70628knw8ykknh2044-lua-5.2.4"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "lua",
+      "broken": false,
+      "derivation": "/nix/store/hz2kjn0yibxdnjrn3m70pyhshykwkmj6-lua-5.2.4.drv",
+      "description": "Powerful, fast, lightweight, embeddable scripting language",
+      "install_id": "lua",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "lua-5.2.4",
+      "pname": "lua",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/m8pq292nkmly4k5xwwqxwvbdq2vaqhc5-lua-5.2.4"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "lua",
+      "broken": false,
+      "derivation": "/nix/store/8b6b14amxppxsqp9ryqcrgz5hag5jn27-lua-5.2.4.drv",
+      "description": "Powerful, fast, lightweight, embeddable scripting language",
+      "install_id": "lua",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "lua-5.2.4",
+      "pname": "lua",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/z1pgni0mszzxv5idwik7dl52gmwj31w8-lua-5.2.4"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "lua",
+      "broken": false,
+      "derivation": "/nix/store/vj37sxfkcw9baf9pnk35v79wf4q0pk8g-lua-5.2.4.drv",
+      "description": "Powerful, fast, lightweight, embeddable scripting language",
+      "install_id": "lua",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "lua-5.2.4",
+      "pname": "lua",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/37rsfz9jr45sciqj8bmgx7wzkfhbc3q2-lua-5.2.4"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stow",
+      "broken": false,
+      "derivation": "/nix/store/lknhv7kl2sj6frc0c9j25imigrxar09f-stow-2.3.1.drv",
+      "description": "A tool for managing the installation of multiple software packages in the same run-time directory tree",
+      "install_id": "stow",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "stow-2.3.1",
+      "pname": "stow",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.3.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/ifrn6vhcrnvqima8z1b3kn0g3d7102lx-stow-2.3.1"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stow",
+      "broken": false,
+      "derivation": "/nix/store/ml32x9yq2il73y8wbfb0s13j2lll9pqy-stow-2.3.1.drv",
+      "description": "A tool for managing the installation of multiple software packages in the same run-time directory tree",
+      "install_id": "stow",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "stow-2.3.1",
+      "pname": "stow",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.3.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/1ldk7cr0j2fb76fa7zr4rr8phbbfr5ql-stow-2.3.1"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stow",
+      "broken": false,
+      "derivation": "/nix/store/c3b6swhqfsd9z8wx6km74bpsqwl17x3y-stow-2.3.1.drv",
+      "description": "A tool for managing the installation of multiple software packages in the same run-time directory tree",
+      "install_id": "stow",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "stow-2.3.1",
+      "pname": "stow",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.3.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/si6acv6ny4hgrb99smdxilip0hykxcn0-stow-2.3.1"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stow",
+      "broken": false,
+      "derivation": "/nix/store/3bl2l5xxbv72g11j9jvsjl9svm69bw42-stow-2.3.1.drv",
+      "description": "A tool for managing the installation of multiple software packages in the same run-time directory tree",
+      "install_id": "stow",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e56990880811a451abd32515698c712788be5720",
+      "name": "stow-2.3.1",
+      "pname": "stow",
+      "rev": "e56990880811a451abd32515698c712788be5720",
+      "rev_count": 521611,
+      "rev_date": "2023-09-02T14:03:41Z",
+      "scrape_date": "2024-08-16T00:19:10Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.3.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/sp9h048cc50rz5vn4p66h87a1jic5j0f-stow-2.3.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    }
+  ]
 }

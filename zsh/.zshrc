@@ -125,3 +125,7 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 . ~/.nix-profile/etc/profile.d/nix.sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export FLYCTL_INSTALL="/home/chrisaddy/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+export PATH=$PATH:/home/chrisaddy/.surrealdb

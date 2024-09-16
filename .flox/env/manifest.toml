@@ -8,6 +8,9 @@ version = 1
 # List packages you wish to install in your environment inside
 # the `[install]` section.
 [install]
+stow.pkg-path = "stow"
+exa.pkg-path = "exa"
+lua.pkg-path = "lua"
 # hello.pkg-path = "hello"
 # nodejs = { version = "^18.4.2", pkg-path = "nodejs_18" }
 
