@@ -16,5 +16,4 @@ git commit -m 'updates'
 git push
 
 pacman -Qqe > "$HOME/dots/packages-list/pacman.txt"
-paru -Qqe > "$HOME/dots/packages-list/paru.txt"
 yay -Qqe > "$HOME/dots/packages-list/yay.txt"

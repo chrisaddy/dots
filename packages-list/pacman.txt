@@ -5,9 +5,11 @@ base
 base-devel
 bat
 biber
+bind
 bluetui
 bluez-utils
 bolt
+bottom
 cameractrls
 catdoc
 cgdb
