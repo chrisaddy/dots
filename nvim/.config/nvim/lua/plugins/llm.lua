@@ -1,25 +1,5 @@
 return {
   {
-    'supermaven-inc/supermaven-nvim',
-    config = function()
-      require('supermaven-nvim').setup {
-        keymaps = {
-          accept_suggestion = '<C-j>',
-          clear_suggestion = '<C-k>',
-          accept_word = '<C-w>',
-        },
-        ignore_filetypes = { cpp = true },
-        color = {
-          suggestion_color = '#ffffff',
-          cterm = 244,
-        },
-        log_level = 'error',
-        disable_inline_completion = false,
-        disable_keymaps = false,
-      }
-    end,
-  },
-  {
     'yetone/avante.nvim',
     event = 'VeryLazy',
     build = 'make',
