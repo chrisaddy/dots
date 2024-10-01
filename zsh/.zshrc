@@ -88,6 +88,7 @@ alias cargo-watch="cargo watch -x check -x test -x run"
 alias cargo-watch="cargo watch -x check -x test -x run"
 alias note="gt modify --edit -q"
 alias vim="nvim"
+alias emacs="emacs -nw"
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -122,8 +123,6 @@ ad() {
 . "/home/chrisaddy/.local/share/mise/installs/rust/1.80.1/env"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
-
-. ~/.nix-profile/etc/profile.d/nix.sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export FLYCTL_INSTALL="/home/chrisaddy/.fly"
